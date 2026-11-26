@@ -1,4 +1,3 @@
-@'
 variable "project_name" {
   type        = string
   description = "Project prefix for naming resources"
@@ -20,4 +19,3 @@ variable "tags" {
   description = "Common tags to apply to resources"
   default     = {}
 }
-'@ | Set-Content -Path "$storageDir\variables.tf" -NoNewline
