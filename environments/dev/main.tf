@@ -44,3 +44,14 @@ module "compute" {
   security_group_ids = [module.security.web_security_group_id]
   tags               = local.common_tags
 }
+module "load_balancer" {
+  source = "../../modules/load_balancer"
+
+  project_name       = var.project_name
+  environment        = var.environment
+  vpc_id             = module.network.vpc_id
+  public_subnet_ids  = module.network.public_subnet_ids
+  security_group_ids = [module.security.web_security_group_id]
+  target_instance_id = module.compute.instance_id
+  tags               = local.common_tags
+}
