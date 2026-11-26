@@ -1,6 +1,6 @@
 resource "random_password" "db_master" {
-  length           = 20
-  special          = false
+  length  = 20
+  special = false
 }
 
 resource "aws_db_subnet_group" "main" {
