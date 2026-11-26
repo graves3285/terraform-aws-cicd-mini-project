@@ -27,3 +27,11 @@ module "security" {
   allowed_ssh_cidrs = var.allowed_ssh_cidrs
   tags              = local.common_tags
 }
+
+module "storage" {
+  source = "../../modules/storage"
+
+  project_name = var.project_name
+  environment  = var.environment
+  tags         = local.common_tags
+}
