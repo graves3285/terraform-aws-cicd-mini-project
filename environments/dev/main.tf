@@ -35,3 +35,12 @@ module "storage" {
   environment  = var.environment
   tags         = local.common_tags
 }
+module "compute" {
+  source = "../../modules/compute"
+
+  project_name       = var.project_name
+  environment        = var.environment
+  subnet_ids         = module.network.public_subnet_ids
+  security_group_ids = [module.security.web_security_group_id]
+  tags               = local.common_tags
+}
