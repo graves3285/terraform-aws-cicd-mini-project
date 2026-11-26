@@ -55,3 +55,12 @@ module "load_balancer" {
   target_instance_id = module.compute.instance_id
   tags               = local.common_tags
 }
+module "database" {
+  source = "../../modules/database"
+
+  project_name       = var.project_name
+  environment        = var.environment
+  private_subnet_ids = module.network.private_subnet_ids
+  security_group_ids = [module.security.web_security_group_id]
+  tags               = local.common_tags
+}
