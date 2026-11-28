@@ -3,8 +3,9 @@ resource "random_id" "bucket_suffix" {
 }
 
 resource "aws_s3_bucket" "app_data" {
-  bucket        = "${var.project_name}-${var.environment}-data-${random_id.bucket_suffix.hex}"
-  force_destroy = var.force_destroy
+  bucket              = "${var.project_name}-${var.environment}-data-${random_id.bucket_suffix.hex}"
+  force_destroy       = var.force_destroy
+  object_lock_enabled = false
 
   tags = merge(var.tags, {
     Name        = "${var.project_name}-${var.environment}-data"
