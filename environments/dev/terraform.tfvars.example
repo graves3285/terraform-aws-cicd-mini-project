@@ -1,0 +1,3 @@
+project_name = "cloud5-cicd"
+environment  = "dev"
+aws_region   = "us-east-1"
